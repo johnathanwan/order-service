@@ -1,23 +1,20 @@
 package com.polarbookshop.orderservice.order.domain
 
 import com.polarbookshop.orderservice.config.*
-import org.junit.jupiter.api.Test
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest
-import org.springframework.context.annotation.Import
-import org.springframework.test.context.ActiveProfiles
-import org.springframework.test.context.DynamicPropertyRegistry
-import org.springframework.test.context.DynamicPropertySource
-import org.testcontainers.containers.PostgreSQLContainer
+import org.junit.jupiter.api.*
+import org.springframework.beans.factory.annotation.*
+import org.springframework.boot.test.autoconfigure.data.r2dbc.*
+import org.springframework.context.annotation.*
+import org.springframework.test.context.*
+import org.testcontainers.containers.*
+import org.testcontainers.junit.jupiter.*
 import org.testcontainers.junit.jupiter.Container
-import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.*
-import reactor.test.StepVerifier
+import reactor.test.*
 
 @DataR2dbcTest
 @Import(DataConfig::class)
 @Testcontainers
-@ActiveProfiles("integration")
 class OrderRepositoryR2dbcTests(@Autowired val orderRepository: OrderRepository) {
     companion object {
         @Container
