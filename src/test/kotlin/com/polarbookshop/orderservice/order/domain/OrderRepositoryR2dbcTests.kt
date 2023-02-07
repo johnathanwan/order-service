@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.data.r2dbc.DataR2dbcTest
 import org.springframework.context.annotation.Import
+import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.containers.PostgreSQLContainer
@@ -16,6 +17,7 @@ import reactor.test.StepVerifier
 @DataR2dbcTest
 @Import(DataConfig::class)
 @Testcontainers
+@ActiveProfiles("integration")
 class OrderRepositoryR2dbcTests(@Autowired val orderRepository: OrderRepository) {
     companion object {
         @Container
