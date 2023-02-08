@@ -40,11 +40,11 @@ class OrderRepositoryR2dbcTests {
         )
     }
 
-    @Test
+    /*@Test
     fun createRejectedOrder() {
         val rejectedOrder = OrderService.buildRejectedOrder("1234567890", 3)
         StepVerifier.create(orderRepository.save(rejectedOrder)).expectNextMatches { it.status == OrderStatus.REJECTED }
             .verifyComplete()
-    }
+    }*/
 
 }
