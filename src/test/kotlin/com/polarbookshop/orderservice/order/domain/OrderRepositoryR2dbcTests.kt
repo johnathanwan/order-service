@@ -15,10 +15,14 @@ import reactor.test.*
 @DataR2dbcTest
 @Import(DataConfig::class)
 @Testcontainers
-class OrderRepositoryR2dbcTests(@Autowired val orderRepository: OrderRepository) {
+class OrderRepositoryR2dbcTests {
+
+    @Autowired
+    lateinit var orderRepository: OrderRepository
+
     companion object {
         @Container
-        val postgresql = PostgreSQLContainer(DockerImageName.parse("postgres:14.4"))
+        val postgresql = PostgreSQLContainer(DockerImageName.parse("postgres:15.1"))
 
         @DynamicPropertySource
         fun postgresqlProperties(registry: DynamicPropertyRegistry) {
