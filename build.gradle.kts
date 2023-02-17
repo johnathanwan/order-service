@@ -29,6 +29,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("org.springframework.cloud:spring-cloud-starter-config")
+    implementation("org.springframework.cloud:spring-cloud-stream-binder-rabbit")
     runtimeOnly("org.flywaydb:flyway-core")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.springframework:spring-jdbc")
@@ -39,6 +40,13 @@ dependencies {
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:r2dbc")
     testImplementation("com.squareup.okhttp3:mockwebserver")
+    testImplementation("org.springframework.cloud:spring-cloud-stream-test-binder") {
+        artifact {
+            name = "spring-cloud-stream-test-binder"
+            extension = "jar"
+            type = "test"
+        }
+    }
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 }
 
